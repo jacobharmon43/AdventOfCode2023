@@ -19,4 +19,17 @@ vector<string> split(const string &input, char delimiter) {
   return substrings;
 }
 
+/**
+ * Generic vector print
+ * Values you print must have << defined as an operator
+*/
+template <typename T>
+void printVector(const std::vector<T>& vec) {
+    std::cout << "[ ";
+    for (const T& element : vec) {
+        std::cout << element << ", ";
+    }
+    std::cout << "]\n";
+}
+
 #endif
