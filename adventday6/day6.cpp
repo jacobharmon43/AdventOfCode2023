@@ -9,20 +9,6 @@
 
 using namespace std;
 
-class ToyBoat {
-  public:
-    int speed;
-    int distance = 0;
-    
-    void Update(string argument) {
-      if (argument == "Hold") {
-        speed += 1;
-      } else if (argument == "Release") {
-        distance += speed;
-      }
-    }
-};
-
 void ReadData(string filename, vector<int>& times, vector<int>& distances);
 void ReadDataPartTwo(string filename, long long& time, long long& distance);
 int Solve(vector<int> times, vector<int> distances);
