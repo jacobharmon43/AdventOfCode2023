@@ -51,10 +51,7 @@ ull PartOneSolve(const vector<string>& lines) {
         numTwo = ch;
       }
     }
-    string s;
-    s += numOne;
-    s += numTwo;
-    sum += stoi(s);
+    sum += Convert(numOne)*10 + Convert(numTwo);
   }
   return sum;
 }
@@ -62,18 +59,15 @@ ull PartOneSolve(const vector<string>& lines) {
 ull PartTwoSolve(const vector<string>& lines) {
   ull sum = 0;
   const string WORDS[9] = {"one","two","three","four","five","six","seven","eight","nine"};
-
   for(auto& line: lines){
     char firstNum = 'E';
     int firstNumIndex = INT_MAX;
     char lastNum = 'E';
     int lastNumIndex = INT_MIN;
-
     int firstWord = 0;
     int firstWordIndex = (INT_MAX);
     int lastWord = 0;
     int lastWordIndex = INT_MIN;
-
     int index = 0;
     for (auto& ch: line) {
       if(isdigit(ch)) {
@@ -86,7 +80,6 @@ ull PartTwoSolve(const vector<string>& lines) {
       }
       index++;
     }
-
     for (auto& num: WORDS) {
       int val = line.find(num);
       if (val != string::npos && val < firstWordIndex) {
@@ -94,7 +87,6 @@ ull PartTwoSolve(const vector<string>& lines) {
         firstWordIndex = val;
       }
     }
-
     string reversedLine(line.rbegin(), line.rend());
     for (auto& num: WORDS) {
       string wordToFind(num.rbegin(), num.rend());
@@ -107,25 +99,17 @@ ull PartTwoSolve(const vector<string>& lines) {
         }
       }
     }
-
-
-    cout << "Found: ";
     if (firstNumIndex < firstWordIndex) {
       sum += 10 * Convert(firstNum);
-      cout << 10*Convert(firstNum);
     } else {
       sum += 10*firstWord;
-      cout << 10*firstWord;
     }
-
     if(lastNumIndex > lastWordIndex) {
       sum += Convert(lastNum);
-      cout << lastNum;
     } else {
       sum += lastWord;
     }
   }
-
   return sum;
 }
 
