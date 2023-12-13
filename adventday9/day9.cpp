@@ -78,7 +78,6 @@ ll SolvePart2(const vector<vector<ll>> numberLines) {
     while(!all_of(newLines[currentIndex].begin(), newLines[currentIndex].end(), [](ll val) {return val == 0;})) {
       newLines.push_back(vector<ll>());
       size_t size = newLines[currentIndex].size();
-      // 6 i = 5 [1].push_back
       for(int i = size - 1; i > 0; i--) {
         newLines[currentIndex+1].insert(newLines[currentIndex+1].begin(), newLines[currentIndex][i-1] - newLines[currentIndex][i]);
       }
